@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "Z75GeQmTr+NscWzjo5p0uAz5Q5yFx11360aP19nSPvP7PlvBd2jO5Qoyf0G5KBZ+ylEjGY73E9wvgGloxq4hIw==",
+  "success": true,
+  "projectFilePath": "C:\\Users\\ШАЙТАН КОРОБКА\\desktop\\PL\\Lab4\\Lab4.fsproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\ШАЙТАН КОРОБКА\\.nuget\\packages\\fsharp.core\\7.0.401\\fsharp.core.7.0.401.nupkg.sha512"
+  ],
+  "logs": []
+}
