@@ -4,18 +4,18 @@ type StringTree =
     | Leaf of string
     | Node of string * StringTree list
 
-let generateRandomWord length num_ex =
+let generateRandomWord length =
     let random = Random()
-    let charList = if num_ex = 1 then List.init length (fun _ -> char (random.Next(65, 91))) else List.init length (fun _ -> char (random.Next(33, 91)))
+    let charList = List.init length (fun _ -> char (random.Next(33, 91)))
     System.String(List.toArray charList)
 
-let rec generateRandomStringTree depth num_ex=
+let rec generateRandomStringTree depth=
     if depth <= 0 
-    then Leaf(generateRandomWord 5 num_ex)
+    then Leaf(generateRandomWord 5 )
     else
         let random = Random()
         let nodeLength = random.Next(1, 3)
-        Node(generateRandomWord 5 num_ex, List.init nodeLength  (fun _ -> generateRandomStringTree (depth-1) num_ex))
+        Node(generateRandomWord 5 , List.init nodeLength  (fun _ -> generateRandomStringTree (depth-1)))
 
 let rec printTree tree =
     match tree with
@@ -36,7 +36,9 @@ let do_exercise_1() =
             Node(new_value, List.map mapTree children)
 
     printfn "\nВведенное дерево:\n"
-    let tree = generateRandomStringTree 3 1
+    let random = Random()
+    let treeDepth = random.Next(1, 6)
+    let tree = generateRandomStringTree treeDepth
     printTree tree
 
     printfn "\nПолученное дерево:\n"
@@ -49,14 +51,16 @@ let do_exercise_2() =
     let rec foldTree tree (symbols:string) res =
         match tree with
         | Leaf(value) ->
-            value.Contains(symbols)
+            value.Equals(symbols)
         | Node(value, children) ->
-            List.fold (fun res child -> res || value.Contains(symbols) || foldTree child symbols res) res children
+            List.fold (fun res child -> res || value.Equals(symbols) || foldTree child symbols res) res children
         
-    let tree = generateRandomStringTree 3 2
+    let random = Random()
+    let treeDepth = random.Next(1, 6)
+    let tree = generateRandomStringTree treeDepth
     printTree tree
 
-    printfn "\nВведите символ для сравнения:"
+    printfn "\nВведите символы для сравнения:"
     let symbols = Console.ReadLine()
 
     let new_bool = foldTree tree symbols false
