@@ -53,11 +53,11 @@ namespace Lab5
         {
             Console.WriteLine("Enter x and y for the first point: ");
             Point point1 = new Point(ReadAndCheckUserInput("x"), ReadAndCheckUserInput("y"));
-            Console.WriteLine($"First point has the following coordinates: {point1.ToString()}\n");
+            Console.WriteLine($"-- First point has the following coordinates: {point1.ToString()}\n");
 
             Console.WriteLine("Enter x and y for the second point: ");
             Point point2 = new Point(ReadAndCheckUserInput("x"), ReadAndCheckUserInput("y"));
-            Console.WriteLine($"Second point has the following coordinates: {point2.ToString()}\n");
+            Console.WriteLine($"-- Second point has the following coordinates: {point2.ToString()}\n");
 
             double distanceBetweenPoints = point1.ComputeDistance(point2);
             Console.WriteLine($"Distance between points: {distanceBetweenPoints:F3}");

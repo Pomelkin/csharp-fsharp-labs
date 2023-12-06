@@ -67,14 +67,14 @@ namespace Lab5
         // Методы класса
         public void ChangeColorToRandom()
         {
-            Console.WriteLine("Changing color to random");
+            Console.WriteLine("\n--Changing color to random--");
             Random random = new Random();
-            this.color = Color.FromArgb(random.Next(0, 256), random.Next(0, 256), random.Next(0, 256));
+            this.color = Color.FromArgb(random.Next(256), random.Next(256), random.Next(256));
         }
         
         public void MovePointTo(int newX, int newY, int newZ)
         {
-            Console.WriteLine($"Moving point to ({newX}, {newY}, {newZ})");
+            Console.WriteLine($"\n--Moving point from ({this.x}, {this.y}, {this.z}) to ({newX}, {newY}, {newZ})--");
             this.x = newX;
             this.y = newY;
             this.z = newZ;
@@ -94,7 +94,7 @@ namespace Lab5
         public static void Run()
         {
             Random random = new Random();
-            
+            Console.WriteLine("--Point3D--");
             // -- Создание объектов класса 2 способами и проверка перегрузки метода ToString --
             Point3D point = new Point3D(random.Next(1,20), random.Next(1,20), random.Next(1,20));
             Console.WriteLine($"Point: {point.ToString()}");
@@ -110,7 +110,8 @@ namespace Lab5
             Console.WriteLine($"Max of Copy - {max}");
 
             // -- Создание нового экземпляра класса ColoredPoint3D - Дочернего класса Point3D --
-            ColoredPoint3D coloredPoint = new ColoredPoint3D(random.Next(1,20), random.Next(1,20), random.Next(1,20), Color.Red);
+            Console.WriteLine("\n--ColoredPoint3D--");
+            ColoredPoint3D coloredPoint = new ColoredPoint3D(random.Next(1,20), random.Next(1,20), random.Next(1,20), Color.FromArgb(random.Next(256), random.Next(256), random.Next(256)));
             Console.WriteLine(coloredPoint.ToString());
 
             // -- Проверка метода ChangeColorToRandom --
